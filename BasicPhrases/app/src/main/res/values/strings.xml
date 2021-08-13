@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Basic Phrases</string>
+    <string name="bom_dia">Bom dia!</string>
+    <string name="boa_tarde">Boa tarde!</string>
+    <string name="boa_noite">Boa noite!</string>
+    <string name="at_logo">Até logo.</string>
+    <string name="muito_obrigado">(Muito) Obrigado.</string>
+    <string name="oi_ol_tchau">Oi/Olá! Tchau!</string>
+    <string name="n_o_h_de_qu">Não há de quê.</string>
+    <string name="bem_vindo">Bem-vindo</string>
+</resources>

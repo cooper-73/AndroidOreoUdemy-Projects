@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Number Shapes</string>
+    <string name="test">Test!</string>
+    <string name="enter_a_whole_positive_number">Enter a whole positive number</string>
+    <string name="enter_a_number_and_i_ll_tell_you_if_it_is_a_triangular_or_square_number">Enter a number and I\'ll tell you if it is a triangular or square number:</string>
+</resources>

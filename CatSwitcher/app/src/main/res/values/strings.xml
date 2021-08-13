@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Cat Switcher</string>
+    <string name="button">Button</string>
+    <string name="catimage">catImage</string>
+</resources>

@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Connect 3 Game</string>
+    <string name="token">token</string>
+    <string name="grid_of_connect_3_game">Grid of Connect 3 Game</string>
+    <string name="play_again">PLAY AGAIN!</string>
+</resources>

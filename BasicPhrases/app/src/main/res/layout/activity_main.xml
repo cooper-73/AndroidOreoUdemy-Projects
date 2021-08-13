@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.gridlayout.widget.GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:columnCount="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rowCount="2">
+
+        <Button
+            android:id="@+id/button0"
+            android:onClick="playPhrase"
+            android:tag="bom_dia"
+            android:text="@string/bom_dia"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/button1"
+            android:onClick="playPhrase"
+            android:tag="boa_tarde"
+            android:text="@string/boa_tarde"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/button2"
+            android:onClick="playPhrase"
+            android:tag="boa_noite"
+            android:text="@string/boa_noite"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/button3"
+            android:onClick="playPhrase"
+            android:tag="oi_ola_tchau"
+            android:text="@string/oi_ol_tchau"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/button4"
+            android:onClick="playPhrase"
+            android:tag="ate_logo"
+            android:text="@string/at_logo"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/button5"
+            android:onClick="playPhrase"
+            android:tag="muito_obrigado"
+            android:text="@string/muito_obrigado"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/button6"
+            android:onClick="playPhrase"
+            android:tag="nao_ha_de_que"
+            android:text="@string/n_o_h_de_qu"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_rowWeight="1" />
+
+        <Button
+            android:id="@+id/button7"
+            android:onClick="playPhrase"
+            android:tag="bem_vindo"
+            android:text="@string/bem_vindo"
+            app:layout_columnWeight="1"
+            app:layout_gravity="fill"
+            app:layout_rowWeight="1" />
+
+    </androidx.gridlayout.widget.GridLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

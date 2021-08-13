@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Toast Demo</string>
+    <string name="name">Name</string>
+    <string name="what_is_your_name">What is your name?</string>
+    <string name="click_me">CLICK ME!</string>
+    <string name="enter_your_name">Enter your name</string>
+    <string name="garfieldimage">garfieldImage</string>
+</resources>

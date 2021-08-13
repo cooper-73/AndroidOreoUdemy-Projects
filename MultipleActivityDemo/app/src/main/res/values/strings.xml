@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Multiple Activity Demo</string>
+    <string name="go_back">Go Back</string>
+</resources>
