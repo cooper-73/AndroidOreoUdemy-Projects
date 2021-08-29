@@ -5,7 +5,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -25,11 +27,13 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -42,6 +46,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     MarkerInfo markerInfo;
     LatLng userCoordinate;
     Marker userMarker;
+    SharedPreferences sharedPreferences;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -61,6 +66,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         Intent intent = getIntent();
         markerInfo = intent.getParcelableExtra("MarkerInfo");
+
+        sharedPreferences = this.getSharedPreferences("com.example.memorableplaces", Context.MODE_PRIVATE);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -114,6 +121,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 MainActivity.markers.add(newMarkerInfo);
                 MainActivity.placesAdapter.notifyDataSetChanged();
                 Toast.makeText(getApplicationContext(), "Location saved!", Toast.LENGTH_SHORT).show();
+                try {
+                    sharedPreferences.edit().putString("markerTitles", ObjectSerializer.serialize(MainActivity.markerTitles)).apply();
+                    sharedPreferences.edit().putString("markers", new Gson().toJson(MainActivity.markers)).apply();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         });
 

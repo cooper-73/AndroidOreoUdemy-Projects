@@ -2,20 +2,29 @@ package com.example.memorableplaces;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.google.android.gms.maps.model.LatLng;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
+    SharedPreferences sharedPreferences;
     ListView placesListView;
     static ArrayList<String> markerTitles = new ArrayList<>();
     static ArrayList<MarkerInfo> markers = new ArrayList<>();
@@ -27,8 +36,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        sharedPreferences = this.getSharedPreferences("com.example.memorableplaces", Context.MODE_PRIVATE);
+        try {
+            String markerTitlesValues = sharedPreferences.getString("markerTitles", ObjectSerializer.serialize(new ArrayList<String>(Arrays.asList("Add a new place..."))));
+            String markersValues = sharedPreferences.getString("markers", new Gson().toJson(new ArrayList<MarkerInfo>()));
+            markerTitles = (ArrayList<String>) ObjectSerializer.deserialize(markerTitlesValues);
+            markers = new Gson().fromJson(markersValues, new TypeToken<ArrayList<MarkerInfo>>(){}.getType());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         placesListView = (ListView) findViewById(R.id.placesListView);
-        markerTitles.add("Add a new place...");
 
         // Settings of the list view
         placesAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, markerTitles);
